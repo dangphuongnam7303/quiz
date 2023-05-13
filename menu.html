@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">DPN QUIZ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+          <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#!view/home"><i class="fas fa-house-damage"></i>Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#!view/about"><i class="fas fa-th-list"></i>About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#!view/contact"><i class="fas fa-address-card"></i>Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#myModal"><i class="fas fa-comments"></i>Feedback</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#!view/faq"><i class="fas fa-question-circle"></i>FAQ</a>
+              </li>
+              <li class="nav-item dropdown mr-5">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user-circle"></i> {{checkLogin}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="register.html" ng-show="checkLogin1==0">Sign Up</a>
+                  <a class="dropdown-item" href="login.html" ng-show="checkLogin1==0">Sign In</a>
+                  <a class="dropdown-item" href="forgotpass.html" ng-show="checkLogin1==0">Forget Password</a>
+                  <div class="dropdown-divider" ng-show="checkLogin1==0"></div>
+                  <a class="dropdown-item" href="#!view/updateinfo" ng-hide="checkLogin1==0">Account Setting</a>
+                  <a class="dropdown-item" href="#!view/changepass" ng-hide="checkLogin1==0">Change Password</a>
+                  <a class="dropdown-item" href="" ng-click="logout()" ng-hide="checkLogin1==0">Sign Out</a>
+                  <a  href="#!view/admin" class="dropdown-item" ng-hide="role1==0">Admin</a>
+                </div>
+              </li>
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0">
+              <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                  <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary btn-number">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+              </div>
+
+          </form>
+      </div>
+  </div>
+</nav>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-messages.min.js"></script>
+  <script src="https://cdn.rawgit.com/Stepan-Kasyanenko/use-form-error/master/src/use-form-error.js"></script>
+  <link rel="stylesheet" href="css/dangky.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <link rel="shortcut icon" href="images/pngtree-quiz-logo-icon-vector-png-image_6234100.jpg" type="image/x-icon">
+  <title>DPN Quiz</title>
+</head>
+
+<body ng-app="myapp">
+  <div class="container register" ng-controller="myctrl">
+    <div class="row">
+      <div class="col-md-3 register-left">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+        <h3>Welcome</h3>
+        <p>You are 30 seconds away from earning your own money!</p>
+        <a id="login" href="./login.html">Login</a>
+      </div>
+      <div class="col-md-9 register-right">
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+              aria-selected="false">Admin</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">Apply as a Student</h3>
+            <form class="form-signin" name="frmBonus">
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="fullname" placeholder="Name" />
+                  </div>
+                  <span>{{fullnameErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="username" placeholder="Username*" />
+                  </div>
+                  <span>{{usernameErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" ng-model="password" placeholder="Password *" />
+                  </div>
+                  <span>{{passwordErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" ng-model="passwordCf"
+                      placeholder="Confirm Password *" />
+                  </div>
+                  <span>{{passwordCfErr}}</span>
+                  <div class="form-group">
+                    <div class="maxl">
+                      <label class="radio inline">
+                        <input type="radio" name="gender" ng-model="gender" value="true">
+                        <span style="color: #f8f9fa;"> Male </span>
+                      </label>
+                      <label class="radio inline">
+                        <input type="radio" name="gender" name="gender" ng-model="gender" value="false">
+                        <span style="color: #f8f9fa;">Female </span>
+                      </label>
+                    </div>
+                    <span>{{genderErr}}</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-at"></i></span>
+                    </div>
+                    <input type="email" class="form-control" ng-model="email" placeholder="Your Email *" />
+                  </div>
+                  <span>{{emailErr}}</span>
+
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="birthday" placeholder="Birthdate *" />
+                  </div>
+                  <span>{{birthdayErr}}</span>
+                  <input type="hidden" ng-model="marks" value="0" name="marks" />
+                  <input type="hidden" ng-model="role" value="false" name="role" />
+                  <input type="submit" class="btnRegister" ng-click="insert()" value="Register" />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h3 class="register-heading">Apply as a Admin</h3>
+            <form class="form-signin" name="frmBonus">
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="fullname" placeholder="Name" />
+                  </div>
+                  <span>{{fullnameErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="username" placeholder="Username*" />
+                  </div>
+                  <span>{{usernameErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" ng-model="password" placeholder="Password *" />
+                  </div>
+                  <span>{{passwordErr}}</span>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" ng-model="passwordCf"
+                      placeholder="Confirm Password *" />
+                  </div>
+                  <span>{{passwordCfErr}}</span>
+                  <div class="form-group">
+                    <div class="maxl">
+                      <label class="radio inline">
+                        <input type="radio" name="gender" ng-model="gender" value="true">
+                        <span style="color: #f8f9fa;"> Male </span>
+                      </label>
+                      <label class="radio inline">
+                        <input type="radio" name="gender" name="gender" ng-model="gender" value="false">
+                        <span style="color: #f8f9fa;">Female </span>
+                      </label>
+                    </div>
+                    <span>{{genderErr}}</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-at"></i></span>
+                    </div>
+                    <input type="email" class="form-control" ng-model="email" placeholder="Your Email *" />
+                  </div>
+                  <span>{{emailErr}}</span>
+
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="birthday" placeholder="Birthdate *" />
+                  </div>
+                  <span>{{birthdayErr}}</span>
+                  <input type="hidden" ng-model="marks" value="0" name="marks" />
+                  <input type="hidden" ng-model="role" value="true" name="role" />
+                  <input type="submit" class="btnRegister" ng-click="insert()" value="Register" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    var app = angular.module("myapp", ['ngMessages']);
+    app.controller("myctrl", function ($scope, $http) {
+      $scope.students = [];
+      $http.get("https://63f30910de3a0b242b39431c.mockapi.io/api/phuongtx/user").then(function (response) {
+        $scope.students = response.data;
+      });
+      var getPeople = function () {
+        $http.get("https://63f30910de3a0b242b39431c.mockapi.io/api/phuongtx/user").then(function (response) {
+          $scope.people = response.data;
+        });
+      }
+
+      function getData() {
+        var flag = true;
+        const req = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var data = {
+          "fullname": $scope.fullname,
+          "email": $scope.email,
+          "username": $scope.username,
+          "birthday": $scope.birthday,
+          "gender": $scope.gender,
+          "password": $scope.password,
+          "role": false,
+        }
+        if ($scope.fullname == null) {
+          $scope.fullnameErr = "Please enter your name";
+          flag = false;
+        } else {
+          $scope.fullnameErr = "";
+        }
+        if ($scope.username == "") {
+          $scope.usernameErr = "Please enter your username";
+          flag = false;
+        } else {
+          $scope.usernameErr = "";
+        }
+        if ($scope.password == "") {
+          $scope.passwordErr = "Please enter your Password";
+          flag = false;
+        } else {
+          $scope.passwordErr = "";
+        }
+        if ($scope.email == "") {
+          $scope.emailErr = "Please enter your email";
+          flag = false;
+        } else if (!req.test($scope.email)) {
+          $scope.emailErr = "Please check your email format";
+          flag = false;
+        } else {
+          $scope.emailErr = "";
+        }
+        if ($scope.birthday == "") {
+          $scope.birthdayErr = "Please enter your birthday";
+          flag = false;
+        } else {
+          $scope.birthdayErr = "";
+        }
+        if ($scope.password != $scope.passwordCf) {
+          $scope.passwordCfErr = "Password is incorrect";
+          flag = false;
+        } else {
+          $scope.passwordCfErr = "";
+        }
+        if ($scope.gender == null) {
+          $scope.genderErr = "Please enter your gender";
+          flag = false;
+        } else {
+          $scope.genderErr = "";
+        }
+        if (flag) {
+          return data;
+        } else {
+          // console.log($scope.birthdayErr)
+          return null;
+        }
+
+      }
+      $scope.insert = function () {
+        if (getData() != null) {
+          $http.post("https://63f30910de3a0b242b39431c.mockapi.io/api/phuongtx/user", getData()).then(function (
+            response) {
+            getPeople();
+          });
+          console.log(getData());
+
+          $scope.students.push(angular.copy($scope.student));
+          console.log($scope.students);
+          Swal.fire(
+            'Thành Công',
+            'Đăng ký thành công!',
+            'success'
+          )
+          setTimeout(function () {
+            Swal.fire({
+              title: 'Bạn có muốn đăng nhập không?',
+              text: "Chọn OK để chuyển sang trang đăng nhập!",
+              icon: 'question',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+              if (result.value) {
+                location.replace("./login.html");
+              }
+            })
+          }, 2000);
+        }
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+
+</html>

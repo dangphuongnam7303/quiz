@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/dangnhap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <link rel="shortcut icon" href="images/pngtree-quiz-logo-icon-vector-png-image_6234100.jpg" type="image/x-icon">
+  <title>DPN Quiz</title>
+  <link rel="stylesheet" href="./css/dangnhap.css">
+</head>
+
+<body ng-app="myapp">
+  <div class="container" ng-controller="myctrl">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Sign In</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-google-plus-square"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" ng-model="student.username" placeholder="username">
+
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" ng-model="student.password" placeholder="password">
+            </div>
+            <div class="row align-items-center remember">
+              <input type="checkbox">Remember Me
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Login" ng-click="login()" class="btn float-right login_btn">
+              <input type="submit" value="Home" style="margin-right: 156px;" onclick="location.href='./index.html'"
+                class="btn float-right login_btn">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?<a href="register.html">Sign Up</a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="forgotpass.html">Forgot your password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function ($scope, $http) {
+      $scope.students = [];
+      $scope.student = {};
+      $http.get("https://63f30910de3a0b242b39431c.mockapi.io/api/phuongtx/user").then(function (response) {
+        $scope.students = response.data;
+      });
+      $scope.login = function () {
+        var i;
+        if ($scope.student.username == "") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Please enter your username',
+            text: 'And try again'
+          })
+        } else if ($scope.student.password == "") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Please enter your password',
+            text: 'And try again'
+          })
+        } else {
+          for (i = 0; i < $scope.students.length; i++) {
+            if ($scope.students[i].username == $scope.student.username &&
+              $scope.students[i].password == $scope.student.password) {
+              localStorage.setItem('index', i)
+              localStorage.setItem('name', $scope.students[i].fullname)
+              localStorage.setItem('id', $scope.students[i].id)
+              localStorage.setItem('email', $scope.students[i].email)
+              localStorage.setItem('role', $scope.students[i].role)
+              localStorage.setItem('username', $scope.students[i].username)
+              localStorage.setItem('password', $scope.students[i].password)
+              localStorage.setItem('birthday', $scope.students[i].birthday)
+              localStorage.setItem('gender', $scope.students[i].gender)
+              localStorage.setItem('marks', $scope.students[i].marks)
+              localStorage.setItem('schoolfee', $scope.students[i].schoolfee)
+
+              if (console.log($scope.students[i].role)) {
+                localStorage.setItem('role1', 1)
+              } else {
+                localStorage.setItem('role1', 0)
+              }
+              Swal.fire(
+                'Thành Công',
+                'Đăng ký thành công!',
+                'success'
+              );
+              location.replace("layout.html");
+              break;
+
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Đăng nhập thất bại',
+                text: 'Vui lòng kiểm tra lại tài khoản!'
+              });
+            }
+          }
+        }
+      }
+    });
+  </script>
+  <!-- Optional JavaScript:  jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+
+</html>

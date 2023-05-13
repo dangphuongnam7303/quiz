@@ -1,0 +1,388 @@
+/* .container-fluid {
+    margin: 0 auto;
+    width: 100%;
+}
+
+header {
+    height: 350px;
+    position: relative;
+}
+
+footer {
+    width: 100%;
+}
+
+
+
+.nav-background {
+    background-image: url("/images/7.jpeg");
+    background-size: cover;
+    min-height: 50px;
+}
+
+#white {
+    margin-left: 20px;
+    color: white;
+}
+
+#bot {
+    margin-bottom: 80px;
+}
+
+#anh {
+    width: 200px;
+    height: 300px;
+}
+
+p {
+    text-align: justify;
+}
+
+#icon {
+    margin-bottom: 10px;
+}
+
+#board {
+    background-image: url("https://live.staticflickr.com/5301/5646903573_f2fe54a853_b.jpg");
+    color: black;
+}
+
+#cfs {
+    background-color: whitesmoke;
+    color: black;
+}
+
+#thank {
+    background-image: url("/images/rg.png");
+    color: white;
+}
+
+#cont {
+    background-image: url("https://i.etsystatic.com/6276538/r/il/dae63d/595315532/il_570xN.595315532_j899.jpg");
+    color: white;
+}
+.modal-dialog{
+    height: 50%;
+    width: 50%;
+    margin:auto;
+}
+
+
+.modal-header{
+    color: white;
+    background-color: #007bff;
+}
+
+textarea{ border: none; 
+    box-shadow: none !important;
+    -webkit-appearance:none;
+    outline:0px !important;
+}
+
+.openmodal{
+    margin-left: 35%;
+    width: 25%;
+    margin-top: 25%;
+}
+
+.icon1{
+   color: #007bff;
+
+}
+
+a{
+    margin: auto;
+}
+
+input{
+    color: #007bff;
+    
+
+}
+
+
+
+.thank-you-pop{
+	width:100%;
+ 	padding:20px;
+	text-align:center;
+}
+.thank-you-pop img{
+	width:76px;
+	height:auto;
+	margin:0 auto;
+	display:block;
+	margin-bottom:25px;
+}
+
+.thank-you-pop h1{
+	font-size: 42px;
+    margin-bottom: 25px;
+	color:#5C5C5C;
+}
+.thank-you-pop p{
+	font-size: 20px;
+    margin-bottom: 27px;
+ 	color:#5C5C5C;
+}
+.thank-you-pop h3.cupon-pop{
+	font-size: 25px;
+    margin-bottom: 40px;
+	color:#222;
+	display:inline-block;
+	text-align:center;
+	padding:10px 20px;
+	border:2px dashed #222;
+	clear:both;
+	font-weight:normal;
+}
+.thank-you-pop h3.cupon-pop span{
+	color:#03A9F4;
+}
+.thank-you-pop a{
+	display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 17px;
+}
+.thank-you-pop a i{
+	margin-right:5px;
+	color:#fff;
+}
+#ignismyModal .modal-header{
+    border:0px;
+}
+ */
+/*
+** Style Simple Ecommerce Theme for Bootstrap 4
+** Created by T-PHP https://t-php.fr/43-theme-ecommerce-bootstrap-4.html
+*/
+
+
+body {
+    background-image: url('../images/back5.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: "Rubik",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-transform: none;
+}
+.container-fluid {
+    width: 1440px;
+}
+
+#bot {
+    margin-bottom: 30px;
+}
+
+.bloc_left_price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.category_block li:hover {
+    background-color: #007bff;
+}
+
+.category_block li:hover a {
+    color: #ffffff;
+}
+
+.category_block li a {
+    color: #343a40;
+}
+
+.add_to_cart_block .price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+.add_to_cart_block .price_discounted {
+    color: #343a40;
+    text-align: center;
+    text-decoration: line-through;
+    font-size: 140%;
+}
+
+.product_rassurance {
+    padding: 10px;
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+}
+
+.product_rassurance .list-inline {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.product_rassurance .list-inline li:hover {
+    color: #343a40;
+}
+
+.reviews_product .fa-star {
+    color: gold;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+/* footer {
+    background: #343a40;
+    padding: 40px;
+} */
+footer a {
+    color: #f8f9fa !important
+}
+
+#thank {
+    background-image: url("/images/rg.png");
+    color: white;
+}
+
+#cont {
+    background-image: url("https://i.etsystatic.com/6276538/r/il/dae63d/595315532/il_570xN.595315532_j899.jpg");
+    color: white;
+}
+
+.modal-dialog {
+    height: 50%;
+    width: 50%;
+    margin: auto;
+}
+
+
+.modal-header {
+    color: white;
+    background-color: #007bff;
+}
+
+textarea {
+    border: none;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    outline: 0px !important;
+}
+
+.openmodal {
+    margin-left: 35%;
+    width: 25%;
+    margin-top: 25%;
+}
+
+.icon1 {
+    color: #007bff;
+
+}
+
+a {
+    margin: auto;
+}
+
+input {
+    color: #007bff;
+
+}
+
+
+
+.thank-you-pop {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.thank-you-pop img {
+    width: 76px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.thank-you-pop h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #5C5C5C;
+}
+
+.thank-you-pop p {
+    font-size: 20px;
+    margin-bottom: 27px;
+    color: #5C5C5C;
+}
+
+.thank-you-pop h3.cupon-pop {
+    font-size: 25px;
+    margin-bottom: 40px;
+    color: #222;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px dashed #222;
+    clear: both;
+    font-weight: normal;
+}
+
+.thank-you-pop h3.cupon-pop span {
+    color: #03A9F4;
+}
+
+.thank-you-pop a {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 17px;
+}
+
+.thank-you-pop a i {
+    margin-right: 5px;
+    color: #fff;
+}
+
+#ignismyModal .modal-header {
+    border: 0px;
+}
+
+i {
+    margin-right: 5px;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    background:none;
+}
+.animate__animated.animate__bounce {
+    --animate-duration: 2s;
+  }
+  
+  /* This changes all the animations globally */
+  :root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+  }

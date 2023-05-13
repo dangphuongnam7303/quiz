@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body class="container" ng-app="myapp" ng-controller="abc">
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNew">Add</button>
+  <table class="table table-dark table-hover mt-3">
+    <thead class="text-center">
+      <tr>
+        <th>First Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr ng-repeat="p in people">
+        <td>{{p.fullname}}</td>
+        <td>{{p.username}}</td>
+        <td>{{p.email}}</td>
+        <td>{{p.birthday}}</td>
+
+        <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal"
+            ng-click="getDetail(p.id)">Detail</button>
+          <button class="btn btn-danger" ng-click="delete(p.id)">Delete</button>
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalUpdate"
+            ng-click="getDetail(p.id)">Update</button></td>
+      </tr>
+
+      <div class="modal" id="viewModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">View detail</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Name: {{getPeopleById.fullname}} <br>
+              Email: {{getPeopleById.email}} <br>
+              Username: {{getPeopleById.username}} <br>
+              Birthday: {{getPeopleById.birthday}} <br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="modalNew" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add New User</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Name: <input class="form-control" type="text" ng-model="fullname"></p>
+              <p>Email: <input class="form-control" type="text" ng-model="email"></p>
+              <p>Username: <input class="form-control" type="text" ng-model="username"></p>
+              <p>Birthday: <input class="form-control" type="datetime" ng-model="birthday"></p>
+              <p>Gender: <select class="form-control" name="gender" id="gender" ng-model="gender">
+                  <option selected value="true">Nam</option>
+                  <option value="false">Nữ</option>
+                </select></p>
+              <p><input hidden type="text" value="18" name="password" id="password" ng-model="password"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" ng-click="add()">Add</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modalUpdate" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Update User</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Name: <input class="form-control" type="text" value="{{getPeopleById.name}}" ng-model="fullname"></p>
+              <p>Email: <input class="form-control" type="text" value="{{getPeopleById.email}}" ng-model="email"></p>
+              <p>username: <input class="form-control" type="text" value="{{getPeopleById.username}}"
+                  ng-model="username"></p>
+              <p>birthday: <input class="form-control" type="datetime" value="{{getPeopleById.birthday}}"
+                  ng-model="birthday"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                ng-click="update(getPeopleById.id)">Update</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tbody>
+  </table>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

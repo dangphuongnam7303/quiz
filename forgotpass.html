@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <title>Quên mật khẩu</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/forgotpassword.css" />
+</head>
+
+<body ng-app="myapp">
+  <div class="container padding-bottom-3x mb-2 mt-5" ng-controller="myctrl">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="forgot">
+
+          <h2>Forgot your password?</h2>
+          <p>Change your password in three easy steps. This will help you to secure your password!</p>
+          <ol class="list-unstyled">
+            <li><span class="text-primary text-medium">1. </span>Enter your email address below.</li>
+            <li><span class="text-primary text-medium">2. </span>Enter your email username below.</li>
+            <li><span class="text-primary text-medium">3. </span>We send your password</li>
+          </ol>
+
+        </div>
+
+        <form class="card mt-4" name="frmBonus">
+          <div class="card-body">
+            <label for="user-for-pass">Enter your email address</label>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-at"></i></span>
+              </div>
+              <input class="form-control" ng-model="student.email" type="text" id="email-for-pass">
+            </div>
+            <small class="form-text">Enter the email address you used during the registration on DPNquiz.com. Then we'll
+              email a link to this address.</small>
+            <label for="email-for-pass">Enter your username</label>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input class="form-control" ng-model="student.username" type="text" id="user-for-pass">
+            </div>
+            <small class="form-text">Enter the email address you used during the registration on DPNquiz.com. Then we'll
+              email a link to this address.</small>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-success" ng-click="submit()" type="submit">Get New Password</button>
+            <button class="btn btn-danger" onclick="location.href='./login.html'">Back to Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function ($scope, $http) {
+      $scope.students = [];
+      $scope.student = {};
+      $http.get("https://63f30910de3a0b242b39431c.mockapi.io/api/phuongtx/user").then(function (response) {
+        $scope.students = response.data;
+      });
+      $scope.submit = function () {
+        var i;
+        for (i = 0; i < $scope.students.length; i++) {
+          if ($scope.students[i].username == $scope.student.username &&
+            $scope.students[i].email == $scope.student.email) {
+            // localStorage.setItem('index', i);
+            localStorage.setItem('index', i)
+            Swal.fire(
+              'Thành Công',
+              'Mật khẩu của bạn là: ' + $scope.students[i].password,
+              'success'
+            );
+            setTimeout(function () {
+              Swal.fire({
+                title: 'Bạn có muốn đăng nhập không?',
+                text: "Chọn OK để chuyển sang trang đăng nhập!",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK!'
+              }).then((result) => {
+                if (result.value) {
+                  location.replace("./login.html");
+                }
+              })
+            }, 3000);
+            break;
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Thất Bại',
+              text: 'Vui lòng nhập đúng Tài khoản và Email!'
+            });
+          }
+        }
+      }
+    });
+  </script>
+  <!-- Optional JavaScript:  jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+
+</html>

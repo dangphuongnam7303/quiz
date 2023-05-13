@@ -1,0 +1,73 @@
+<!-- <section class="ftco-section" >
+    <div class="container">
+            <div class="row" >
+                <div class="col-md-6 mb-4" ng-repeat="m in listMonHocs | limitTo:4:begin"  >
+                <a href="#!view/quiz/{{m.Id}}/{{m.Name}}" class="text-danger" style="text-decoration: none;">
+                    <div class="card-deck" >
+                        <div class="card " >
+                        <img src="images/logos/{{m.Logo}}" class="card-img-top" alt="..."  style="height: 300px;">
+                            <div class="card-footer" style="height: 60px;">
+                            <small class="text-muted">
+                                <p class="text-center font-weight-bold m-0" style="font-size: 20px;">{{m.Name}}</p></small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class=" m-auto pb-0">
+                <nav aria-label="Page navigation example m-auto ">
+                  <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="" ng-click="first()"><i class="fas fa-step-backward"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="" ng-click="prev()"><i class="fas fa-backward"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="" ng-click="next()"><i class="fas fa-forward"></i></a></li>
+                    <li class="page-item"><a class="page-link" href="" ng-click="last()"><i class="fas fa-step-forward"></i></a></li>
+                  </ul>
+                </nav>
+              </div>
+    </div>
+    
+  </section>
+
+
+
+   -->
+<style>
+  .card-title a {
+    text-decoration: none;
+    height: 50px;
+  }
+  .card-title{
+    margin-bottom: 30px;
+    height: 60px;
+  }
+</style>
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" style="margin-bottom: 32px;" ng-repeat="m in listMonHocs | limitTo:6:begin">
+    <div class="card">
+      <img class="card-img-top" src="images/logos/{{m.Logo}}" style="height: 200px;" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><a href="#!view/quiz/{{m.Id}}/{{m.Name}}">{{m.Name}}</a></h4>
+        <p class="card-text">A few basic and advanced questions for you to accurately grasp the content of the lesson to develop more thinking and improve memory.</p>
+        <div class="row">
+          <div class="col">
+            <a href="#!view/quiz/{{m.Id}}/{{m.Name}}" class="btn btn-danger btn-block">Try it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class=" m-auto pb-0">
+      <nav aria-label="Page navigation example m-auto ">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="" ng-click="first()"><i class="fas fa-step-backward"></i></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="" ng-click="prev()"><i class="fas fa-backward"></i></a></li>
+          <li class="page-item"><a class="page-link" href="" ng-click="next()"><i class="fas fa-forward"></i></a></li>
+          <li class="page-item"><a class="page-link" href="" ng-click="last()"><i class="fas fa-step-forward"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
